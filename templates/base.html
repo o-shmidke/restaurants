@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div style="">
+    <h3>Всего филиалов у каждого из ресторанов:</h3>
+    <div>
+        {% for key,value in count_restaurants.items %}
+            <div>
+                {{ key }}:{{ value }}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<div style="">
+    <h3>Конкурентная способность в г.Москва:</h3>
+    <div>
+        {% for key,value in analiz.items %}
+            <div>
+                {{ key }}:{{ value }}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<div style="padding: 20px">
+    <div>
+        <a href="{% url 'data_analysis:view_data' %}" style="padding: 15px">Таблица всех ресторанов</a>
+        <a href="{% url 'data_analysis:get_data' %} " style="padding: 15px">Обновить данные (долго)</a>
+    </div>
+</div>
+<div>
+    {% include 'table_of_restaurants.html' %}
+</div>
+
+</body>
+</html>
